@@ -1,0 +1,31 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titular</th>
+        <th scope="col">Numero de Tarjeta</th>
+        <th scope="col">Expiracion</th>
+        <th scope="col">CVV</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tarjeta of tarjetaService.list">
+        <th scope="row">{{tarjeta.id}}</th>
+        <td>{{tarjeta.titular}}</td>
+        <td>{{tarjeta.numeroTarjeta}}</td>
+        <td>{{tarjeta.fechaExpiracion}}</td>
+        <td>{{tarjeta.cvv}}</td>
+        <td>
+            <i class="far fa-edit fa-lg text-info" 
+            (click)="editar(tarjeta)"
+            style="cursor: pointer;"></i>
+        </td>
+        <td>
+            <i class="far fa-trash fa-lg text-danger" 
+            (click)="eliminarTarjeta(tarjeta.id || 0)"
+             style="cursor: pointer;"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
